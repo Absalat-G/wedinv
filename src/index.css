@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-script {
+    font-family: 'Pinyon Script', cursive;
+  }
+  .font-vibes {
+    font-family: 'Great Vibes', cursive;
+  }
+  .font-serif-luxury {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+  .font-cinzel {
+    font-family: 'Cinzel', serif;
+  }
+  .font-cinzel-deco {
+    font-family: 'Cinzel Decorative', serif;
+  }
+  .font-sans-clean {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #F9E7B9 0%, #D4AF37 35%, #AA7C11 70%, #F3E5AB 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gold-light {
+    background: linear-gradient(135deg, #FFF6D6 0%, #E2C37A 50%, #C99E42 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-gold-metallic {
+    background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 30%, #AA7C11 70%, #E6C875 100%);
+  }
+
+  .bg-gold-seal {
+    background: radial-gradient(circle at 35% 35%, #f6e6b4 0%, #d4af37 35%, #9b720d 75%, #634703 100%);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,255,255,0.4), inset 0 -2px 4px rgba(0,0,0,0.4);
+  }
+
+  .bg-navy-envelope {
+    background: linear-gradient(145deg, #0d1a33 0%, #081124 60%, #040915 100%);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  }
+
+  .bg-ivory-card {
+    background: linear-gradient(180deg, #FDFBF7 0%, #FAF6EE 100%);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 3px 10px rgba(0,0,0,0.2);
+  }
+
+  .border-gold-subtle {
+    border-color: rgba(212, 175, 55, 0.35);
+  }
+
+  .border-gold-glow {
+    border-color: rgba(212, 175, 55, 0.7);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050B18;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A3C60;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(4deg);
+  }
+}
+
+@keyframes shimmerEffect {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.gold-shimmer-card {
+  position: relative;
+  overflow: hidden;
+}
+.gold-shimmer-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(105deg, transparent 20%, rgba(255, 230, 160, 0.08) 50%, transparent 80%);
+  background-size: 200% 100%;
+  pointer-events: none;
+  animation: shimmerEffect 8s infinite linear;
+}
+

@@ -1,0 +1,8 @@
+{
+  "name": "Yehasab & Absalat - Royal Ethiopian Orthodox Wedding Invitation",
+  "description": "A luxurious, romantic digital Ethiopian Orthodox wedding invitation website for Yehasab Befrdu & Absalat Girma with royal blue florals, gold accents, RSVP, and schedule.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
