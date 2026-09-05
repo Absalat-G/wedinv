@@ -7,6 +7,8 @@ import { WEDDING_CONFIG } from '../data/weddingData';
 
 import img4J0A5194 from '../assets/images/4J0A5194.JPG';
 import img4J0A5225 from '../assets/images/4J0A5225.JPG';
+import img4J0A4852 from '../assets/images/7U7A4852.JPG';
+import img4J0A4858 from '../assets/images/7U7A4858.JPG';
 import img4J0A5288 from '../assets/images/4J0A5288.JPG';
 import img7U7A4655 from '../assets/images/7U7A4655.JPG';
 import img7U7A4737 from '../assets/images/7U7A4737.JPG';
@@ -25,8 +27,6 @@ const DEFAULT_GALLERY_PHOTOS: GalleryPhoto[] = [
     caption: '“In your embrace, I have found my forever home and holy partner for life.”',
     orientation: 'portrait',
   },
-
-
   {
     id: '2',
     src: img7U7A4655,
@@ -43,48 +43,55 @@ const DEFAULT_GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     id: '4',
-    src: img7U7A4749,
+    src: img4J0A4852,
     alt: 'Together Always',
     caption: '“Walking hand in hand toward our shared destiny.”',
     orientation: 'square',
   },
   {
     id: '5',
-    src: img7U7A4762,
+    src: img4J0A4858,
     alt: 'Engagement Joy',
     caption: '“The beginning of our forever and ever.”',
     orientation: 'portrait',
   },
   {
     id: '6',
+    src: img7U7A4749,
+    alt: 'Together Always',
+    caption: '“Walking hand in hand toward our shared destiny.”',
+    orientation: 'square',
+  },
+  {
+    id: '7',
     src: img4J0A5194,
     alt: 'Love is Patient, Love is Kind',
     caption: '“The tender moments and joyful smiles that defined our path toward marriage.”',
     orientation: 'portrait',
   },
   {
-    id: '7',
+    id: '8',
     src: img4J0A5225,
     alt: 'Laughter & Romantic Moments',
     caption: '“Every day with you is a blessing and a joyous adventure.”',
     orientation: 'landscape',
   },
   {
-    id: '8',
+    id: '9',
     src: img4J0A5288,
     alt: `${WEDDING_CONFIG.couple.bride} & ${WEDDING_CONFIG.couple.groom}`,
     caption: '“A glimpse into our future and the love we share.”',
     orientation: 'landscape',
   },
   {
-    id: '9',
+    id: '10',
     src: img7U7A5090,
     alt: 'A Beautiful Moment',
     caption: '“A love that grows deeper with every passing day.”',
     orientation: 'landscape',
   },
   {
-    id: '10',
+    id: '11',
     src: img7U7A5109,
     alt: 'Hand in Hand',
     caption: '“Two souls united in love and grace.”',

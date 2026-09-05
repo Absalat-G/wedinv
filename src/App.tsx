@@ -14,6 +14,7 @@ import { RsvpSection } from './components/RsvpSection';
 import { RegistrySection } from './components/RegistrySection';
 import { ThankYouFooter } from './components/ThankYouFooter';
 import { AdminDashboard } from './components/AdminDashboard';
+import { LocationSection } from './components/LocationSection';
 
 export default function App() {
   // Show admin dashboard if ?admin is in the URL
@@ -87,6 +88,9 @@ export default function App() {
 
               {/* Wedding Details & Venue */}
               <WeddingDetails />
+
+              {/* Location Section */}
+              <LocationSection />
 
               {/* Hourly Schedule */}
               <ScheduleSection />

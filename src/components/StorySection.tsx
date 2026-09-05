@@ -4,8 +4,10 @@ import { Heart, Sparkles, MapPin, Calendar, Quote, Crown } from 'lucide-react';
 import { STORY_MILESTONES, WEDDING_CONFIG } from '../data/weddingData';
 
 // Images
-import ethiopianCoupleImg from '../assets/images/7U7A4737.JPG';
-import cathedralImg from '../assets/images/ethiopian_orthodox_church_1787811623729.jpg';
+import story1 from '../assets/images/story 1.png';
+import story2 from '../assets/images/story 2.jpg';
+import story3 from '../assets/images/story 3.jpg';
+import story4 from '../assets/images/story 4.jpg';
 import goldCrossImg from '../assets/images/ethiopian_gold_cross_1787811589160.jpg';
 import floralSpray from '../assets/images/blue_floral_spray_1787753700793.png';
 import goldSealImg from '../assets/images/gold_wax_seal_1787753772029.jpg';
@@ -68,31 +70,29 @@ export const StorySection: React.FC = () => {
               />
             </div>
 
-            {/* Photo 1: Large Main Portrait (Left tilt) showing Kaba and Crowns */}
+            {/* Photo 1: Large Main Portrait (Left tilt) */}
             <motion.div
               initial={{ opacity: 0, y: 30, rotate: -6 }}
               whileInView={{ opacity: 1, y: 0, rotate: -4 }}
               viewport={{ once: true }}
               whileHover={{ rotate: 0, scale: 1.03, zIndex: 30 }}
               transition={{ duration: 0.8 }}
-              className="absolute left-0 top-4 w-[70%] bg-[#FAF6EE] p-3 pb-6 rounded-lg shadow-[0_15px_35px_rgba(0,0,0,0.7)] border border-[#D4AF37]/40 z-10"
+              className="absolute left-0 top-4 w-[85%] bg-[#FAF6EE] p-3 pb-6 rounded-lg shadow-[0_15px_35px_rgba(0,0,0,0.7)] border border-[#D4AF37]/40 z-10"
             >
               {/* Wax Seal Pin */}
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full overflow-hidden shadow-md z-20 border border-[#D4AF37]">
                 <img src={goldSealImg} alt="Wax Seal" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
               </div>
 
-              <div className="w-full aspect-[3/4] rounded bg-stone-900 overflow-hidden mt-1 shadow-inner">
+              <div className="w-full aspect-[4/3] rounded bg-stone-900 overflow-hidden mt-1 shadow-inner">
                 <img
-                  src={ethiopianCoupleImg}
-                  alt={`${WEDDING_CONFIG.couple.bride} & ${WEDDING_CONFIG.couple.groom} in Royal Kaba`}
+                  src={story1}
+                  alt="Our Story"
                   className="w-full h-full object-cover filter contrast-[1.05]"
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <p className="font-script text-xl text-[#0A1931] text-center mt-2.5">
-                Crowned King & Queen ·
-              </p>
+
             </motion.div>
 
             {/* Photo 2: Top Right Small Polaroid (Right tilt) */}
@@ -106,15 +106,13 @@ export const StorySection: React.FC = () => {
             >
               <div className="w-full aspect-square rounded bg-stone-900 overflow-hidden shadow-inner">
                 <img
-                  src={cathedralImg}
-                  alt="Cathedral Sanctuary"
+                  src={story2}
+                  alt="Story Image 2"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <p className="font-script text-lg text-[#0A1931] text-center mt-1.5">
-                Holy Cathedral Sanctuary
-              </p>
+
             </motion.div>
 
             {/* Photo 3: Bottom Right Polaroid */}
@@ -124,19 +122,37 @@ export const StorySection: React.FC = () => {
               viewport={{ once: true }}
               whileHover={{ rotate: 0, scale: 1.05, zIndex: 30 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="absolute right-2 bottom-2 w-[54%] bg-[#FAF6EE] p-2.5 pb-4 rounded-lg shadow-[0_15px_30px_rgba(0,0,0,0.8)] border border-[#D4AF37]/40 z-20"
+              className="absolute right-2 bottom-12 w-[54%] bg-[#FAF6EE] p-2.5 pb-4 rounded-lg shadow-[0_15px_30px_rgba(0,0,0,0.8)] border border-[#D4AF37]/40 z-20"
             >
               <div className="w-full aspect-[4/3] rounded bg-stone-900 overflow-hidden shadow-inner">
                 <img
-                  src={goldCrossImg}
-                  alt="The Holy Matrimonial Covenant"
+                  src={story3}
+                  alt="Story Image 3"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <p className="font-script text-lg text-[#0A1931] text-center mt-1.5">
-                Sacred Covenant (ቃል ኪዳን)
-              </p>
+
+            </motion.div>
+
+            {/* Photo 4: Bottom Left Polaroid */}
+            <motion.div
+              initial={{ opacity: 0, y: 50, rotate: 3 }}
+              whileInView={{ opacity: 1, y: 0, rotate: -2 }}
+              viewport={{ once: true }}
+              whileHover={{ rotate: 0, scale: 1.05, zIndex: 35 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="absolute left-4 -bottom-6 w-[48%] bg-[#FAF6EE] p-2.5 pb-4 rounded-lg shadow-[0_15px_30px_rgba(0,0,0,0.8)] border border-[#D4AF37]/40 z-30"
+            >
+              <div className="w-full aspect-[4/3] rounded bg-stone-900 overflow-hidden shadow-inner">
+                <img
+                  src={story4}
+                  alt="Story Image 4"
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+
             </motion.div>
 
           </div>
@@ -188,51 +204,6 @@ export const StorySection: React.FC = () => {
               </span>
             </div>
           </motion.div>
-
-          {/* Interactive Milestone Timeline */}
-          <div className="space-y-4">
-            <h3 className="font-cinzel text-sm sm:text-base tracking-[0.25em] text-[#F3E5AB] uppercase flex items-center gap-2">
-              <Calendar size={16} className="text-[#D4AF37]" />
-              <span>Milestones of Faith & Love</span>
-            </h3>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {STORY_MILESTONES.map((milestone, idx) => (
-                <motion.div
-                  key={idx}
-                  onClick={() => setActiveTab(idx)}
-                  whileHover={{ scale: 1.02 }}
-                  className={`cursor-pointer p-4 rounded-xl border transition-all duration-300 ${activeTab === idx
-                    ? 'bg-[#0E2247] border-[#D4AF37] shadow-[0_0_15px_rgba(212,175,55,0.25)]'
-                    : 'bg-[#081429]/70 border-[#D4AF37]/20 hover:border-[#D4AF37]/50'
-                    }`}
-                >
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="font-cinzel text-[10px] tracking-wider text-[#D4AF37] font-semibold">
-                      {milestone.year}
-                    </span>
-                    <Heart
-                      size={12}
-                      className={activeTab === idx ? 'text-[#D4AF37] fill-[#D4AF37]' : 'text-stone-500'}
-                    />
-                  </div>
-                  <h4 className="font-serif-luxury font-bold text-base text-[#FAF6EE]">
-                    {milestone.title}
-                  </h4>
-                  <p className="font-sans-clean text-xs text-stone-300 line-clamp-2 mt-1">
-                    {milestone.description}
-                  </p>
-                  {milestone.location && (
-                    <div className="flex items-center gap-1 mt-2 text-[10px] font-sans-clean text-[#C5A059]">
-                      <MapPin size={10} />
-                      <span>{milestone.location}</span>
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
         </div>
       </div>
     </section>

@@ -45,9 +45,7 @@ export const ScheduleSection: React.FC = () => {
           Wedding <span className="font-vibes text-5xl sm:text-7xl text-gold-gradient mx-2">Schedule</span>
         </h2>
 
-        <p className="font-serif-luxury italic text-stone-300 text-base sm:text-lg max-w-xl mx-auto mt-3">
-          "A curated evening of sacred devotion, fine dining, joyful melodies, and starlit celebration."
-        </p>
+
 
         <div className="flex items-center justify-center gap-3 mt-4">
           <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-[#D4AF37]" />
@@ -71,9 +69,8 @@ export const ScheduleSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.08 }}
-                className={`relative flex flex-col md:flex-row items-center ${
-                  isEven ? 'md:flex-row-reverse' : ''
-                }`}
+                className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''
+                  }`}
               >
                 {/* Content Card */}
                 <div className="w-full md:w-[45%]">
@@ -94,9 +91,7 @@ export const ScheduleSection: React.FC = () => {
                       {event.title}
                     </h3>
 
-                    <p className="font-sans-clean text-xs sm:text-sm text-stone-600 mt-2 leading-relaxed">
-                      {event.description}
-                    </p>
+
                   </div>
                 </div>
 

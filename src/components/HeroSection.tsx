@@ -95,7 +95,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onResetEnv
           </div>
 
           <h1 className="font-serif-luxury text-3xl sm:text-5xl lg:text-6xl text-[#FAF6EE] font-light tracking-wide">
-            The Holy Crowning of <br className="sm:hidden" />
+            The Holy Crowning of
+            <br className="sm:hidden" />
             <span className="font-vibes text-4xl sm:text-7xl lg:text-8xl text-gold-light mx-2">
               {WEDDING_CONFIG.couple.groom} & {WEDDING_CONFIG.couple.bride}
             </span>
