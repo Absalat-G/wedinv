@@ -29,12 +29,12 @@ export const WeddingDetails: React.FC = () => {
         </div>
 
         <h2 className="font-serif-luxury text-4xl sm:text-6xl text-[#FAF6EE] font-light">
-          Venues & <span className="font-vibes text-5xl sm:text-7xl text-gold-gradient mx-2">Celebration</span> Details
+          <span className="font-vibes text-5xl sm:text-7xl text-gold-gradient mx-2">Celebration</span> Details
         </h2>
 
-        <p className="font-serif-luxury italic text-stone-300 text-base sm:text-lg max-w-2xl mx-auto mt-3">
+        {/* <p className="font-serif-luxury italic text-stone-300 text-base sm:text-lg max-w-2xl mx-auto mt-3">
           "From the sacred chants of the Ethiopian Orthodox Cathedral to the joyous royal banquet under crystal chandeliers."
-        </p>
+        </p> */}
 
         <div className="flex items-center justify-center gap-3 mt-4">
           <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-[#D4AF37]" />

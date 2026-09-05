@@ -58,10 +58,10 @@ export const StorySection: React.FC = () => {
 
         {/* Left Column: Layered Polaroid Collage */}
         <div className="lg:col-span-6 relative flex justify-center">
-          <div className="relative w-full max-w-md min-h-[520px]">
+          <div className="flex flex-col sm:block relative w-full max-w-md mx-auto sm:min-h-[520px] space-y-8 sm:space-y-0 mt-4 lg:mt-0">
 
             {/* Background Floral Spray behind collage */}
-            <div className="absolute -top-10 -left-10 w-44 pointer-events-none opacity-80 z-0">
+            <div className="hidden sm:block absolute -top-10 -left-10 w-44 pointer-events-none opacity-80 z-0">
               <img
                 src={floralSpray}
                 alt="Floral Spray"
@@ -77,7 +77,7 @@ export const StorySection: React.FC = () => {
               viewport={{ once: true }}
               whileHover={{ rotate: 0, scale: 1.03, zIndex: 30 }}
               transition={{ duration: 0.8 }}
-              className="absolute left-0 top-4 w-[85%] bg-[#FAF6EE] p-3 pb-6 rounded-lg shadow-[0_15px_35px_rgba(0,0,0,0.7)] border border-[#D4AF37]/40 z-10"
+              className="relative sm:absolute sm:left-0 sm:top-4 w-full sm:w-[85%] bg-[#FAF6EE] p-3 sm:pb-6 rounded-lg shadow-xl sm:shadow-[0_15px_35px_rgba(0,0,0,0.7)] border border-[#D4AF37]/40 z-10"
             >
               {/* Wax Seal Pin */}
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full overflow-hidden shadow-md z-20 border border-[#D4AF37]">
@@ -102,7 +102,7 @@ export const StorySection: React.FC = () => {
               viewport={{ once: true }}
               whileHover={{ rotate: 2, scale: 1.05, zIndex: 30 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="absolute right-0 top-0 w-[52%] bg-[#FAF6EE] p-2.5 pb-4 rounded-lg shadow-[0_15px_30px_rgba(0,0,0,0.7)] border border-[#D4AF37]/40 z-20"
+              className="relative sm:absolute sm:right-0 sm:top-0 w-[90%] mx-auto sm:w-[52%] bg-[#FAF6EE] p-3 pb-6 sm:p-2.5 sm:pb-4 rounded-lg shadow-xl sm:shadow-[0_15px_30px_rgba(0,0,0,0.7)] border border-[#D4AF37]/40 z-20"
             >
               <div className="w-full aspect-square rounded bg-stone-900 overflow-hidden shadow-inner">
                 <img
@@ -122,7 +122,7 @@ export const StorySection: React.FC = () => {
               viewport={{ once: true }}
               whileHover={{ rotate: 0, scale: 1.05, zIndex: 30 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="absolute right-2 bottom-12 w-[54%] bg-[#FAF6EE] p-2.5 pb-4 rounded-lg shadow-[0_15px_30px_rgba(0,0,0,0.8)] border border-[#D4AF37]/40 z-20"
+              className="relative sm:absolute sm:right-2 sm:bottom-12 w-[90%] mx-auto sm:w-[54%] bg-[#FAF6EE] p-3 pb-6 sm:p-2.5 sm:pb-4 rounded-lg shadow-xl sm:shadow-[0_15px_30px_rgba(0,0,0,0.8)] border border-[#D4AF37]/40 z-20"
             >
               <div className="w-full aspect-[4/3] rounded bg-stone-900 overflow-hidden shadow-inner">
                 <img
@@ -142,7 +142,7 @@ export const StorySection: React.FC = () => {
               viewport={{ once: true }}
               whileHover={{ rotate: 0, scale: 1.05, zIndex: 35 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="absolute left-4 -bottom-6 w-[48%] bg-[#FAF6EE] p-2.5 pb-4 rounded-lg shadow-[0_15px_30px_rgba(0,0,0,0.8)] border border-[#D4AF37]/40 z-30"
+              className="relative sm:absolute sm:left-4 sm:-bottom-6 w-[90%] mx-auto sm:w-[48%] bg-[#FAF6EE] p-3 pb-6 sm:p-2.5 sm:pb-4 rounded-lg shadow-xl sm:shadow-[0_15px_30px_rgba(0,0,0,0.8)] border border-[#D4AF37]/40 z-30"
             >
               <div className="w-full aspect-[4/3] rounded bg-stone-900 overflow-hidden shadow-inner">
                 <img
