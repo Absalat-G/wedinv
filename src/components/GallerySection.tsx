@@ -4,7 +4,7 @@ import { Sparkles, X, ChevronLeft, ChevronRight, Eye, Heart, Crown, Church, Uplo
 import { GalleryPhoto } from '../types';
 import { WEDDING_CONFIG } from '../data/weddingData';
 
-import img4J0A5154 from '../assets/images/4J0A5154.JPG';
+
 import img4J0A5194 from '../assets/images/4J0A5194.JPG';
 import img4J0A5225 from '../assets/images/4J0A5225.JPG';
 import img4J0A5288 from '../assets/images/4J0A5288.JPG';
@@ -14,64 +14,67 @@ import img7U7A4749 from '../assets/images/7U7A4749.JPG';
 import img7U7A4762 from '../assets/images/7U7A4762.JPG';
 import img7U7A5090 from '../assets/images/7U7A5090.JPG';
 import img7U7A5109 from '../assets/images/7U7A5109.JPG';
+import img7U7A4765 from '../assets/images/7U7A4765.JPG';
 import goldSealImg from '../assets/images/gold_wax_seal_1787753772029.jpg';
 
 const DEFAULT_GALLERY_PHOTOS: GalleryPhoto[] = [
   {
     id: '1',
-    src: img4J0A5154,
+    src: img7U7A4737,
     alt: `${WEDDING_CONFIG.couple.bride} & ${WEDDING_CONFIG.couple.groom} Portrait`,
     caption: '“In your embrace, I have found my forever home and holy partner for life.”',
     orientation: 'portrait',
   },
+
+
   {
     id: '2',
-    src: img4J0A5194,
-    alt: 'Love is Patient, Love is Kind',
-    caption: '“The tender moments and joyful smiles that defined our path toward marriage.”',
-    orientation: 'portrait',
-  },
-  {
-    id: '3',
-    src: img4J0A5225,
-    alt: 'Laughter & Romantic Moments',
-    caption: '“Every day with you is a blessing and a joyous adventure.”',
-    orientation: 'landscape',
-  },
-  {
-    id: '4',
-    src: img4J0A5288,
-    alt: `${WEDDING_CONFIG.couple.bride} & ${WEDDING_CONFIG.couple.groom}`,
-    caption: '“A glimpse into our future and the love we share.”',
-    orientation: 'landscape',
-  },
-  {
-    id: '5',
     src: img7U7A4655,
     alt: 'Cherished Memories',
     caption: '“Building our lives together with faith and devotion.”',
     orientation: 'landscape',
   },
   {
-    id: '6',
-    src: img7U7A4737,
+    id: '3',
+    src: img7U7A4765,
     alt: 'Forever in Love',
     caption: '“Our eternal foundation in prayer, heritage, and boundless faith.”',
     orientation: 'square',
   },
   {
-    id: '7',
+    id: '4',
     src: img7U7A4749,
     alt: 'Together Always',
     caption: '“Walking hand in hand toward our shared destiny.”',
     orientation: 'square',
   },
   {
-    id: '8',
+    id: '5',
     src: img7U7A4762,
     alt: 'Engagement Joy',
     caption: '“The beginning of our forever and ever.”',
     orientation: 'portrait',
+  },
+  {
+    id: '6',
+    src: img4J0A5194,
+    alt: 'Love is Patient, Love is Kind',
+    caption: '“The tender moments and joyful smiles that defined our path toward marriage.”',
+    orientation: 'portrait',
+  },
+  {
+    id: '7',
+    src: img4J0A5225,
+    alt: 'Laughter & Romantic Moments',
+    caption: '“Every day with you is a blessing and a joyous adventure.”',
+    orientation: 'landscape',
+  },
+  {
+    id: '8',
+    src: img4J0A5288,
+    alt: `${WEDDING_CONFIG.couple.bride} & ${WEDDING_CONFIG.couple.groom}`,
+    caption: '“A glimpse into our future and the love we share.”',
+    orientation: 'landscape',
   },
   {
     id: '9',

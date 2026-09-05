@@ -13,8 +13,13 @@ import { GallerySection } from './components/GallerySection';
 import { RsvpSection } from './components/RsvpSection';
 import { RegistrySection } from './components/RegistrySection';
 import { ThankYouFooter } from './components/ThankYouFooter';
+import { AdminDashboard } from './components/AdminDashboard';
 
 export default function App() {
+  // Show admin dashboard if ?admin is in the URL
+  const isAdminRoute = new URLSearchParams(window.location.search).has('admin');
+  if (isAdminRoute) return <AdminDashboard />;
+
   const [isEnvelopeOpened, setIsEnvelopeOpened] = useState(false);
 
   const handleOpenEnvelope = () => {

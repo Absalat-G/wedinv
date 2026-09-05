@@ -131,6 +131,7 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ isOpened, onOp
                 y: openingState === 'closed' ? 0 : -145,
                 opacity: openingState === 'closed' ? 0.9 : 1,
               }}
+              style={{ willChange: 'transform, opacity' }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
               className="absolute inset-x-4 inset-y-2 bg-[#FDFBF7] rounded-md border border-[#D4AF37]/40 p-4 shadow-md flex flex-col items-center justify-center text-center z-10"
             >
@@ -171,11 +172,10 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ isOpened, onOp
               animate={{
                 rotateX: openingState === 'closed' ? 0 : -180,
                 zIndex: openingState === 'closed' ? 30 : 5,
-                filter: openingState === 'closed' ? 'drop-shadow(0 15px 15px rgba(0,0,0,0.5))' : 'drop-shadow(0 0px 0px rgba(0,0,0,0))',
               }}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
-              style={{ transformOrigin: 'top center', transformStyle: 'preserve-3d' }}
-              className="absolute inset-0 pointer-events-none"
+              style={{ transformOrigin: 'top center', transformStyle: 'preserve-3d', willChange: 'transform' }}
+              className="absolute inset-0 pointer-events-none drop-shadow-[0_15px_15px_rgba(0,0,0,0.5)]"
             >
               <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0">
                 <defs>
@@ -213,6 +213,7 @@ export const OpeningEnvelope: React.FC<OpeningEnvelopeProps> = ({ isOpened, onOp
                 opacity: openingState === 'closed' ? 1 : 0,
                 rotate: openingState === 'closed' ? (isHovered ? 5 : 0) : 45,
               }}
+              style={{ willChange: 'transform, opacity' }}
               transition={{ duration: 0.4 }}
               className="absolute top-[48%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-40 w-16 h-16 sm:w-20 sm:h-20 cursor-pointer drop-shadow-[0_8px_16px_rgba(0,0,0,0.7)]"
             >

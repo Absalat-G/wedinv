@@ -7,7 +7,7 @@ import { createGoogleCalendarUrl, downloadIcsFile } from '../utils/calendar';
 // Image references
 import blueRosesBg from '../assets/images/blue_roses_bg_1787753639132.jpg';
 import floralSpray from '../assets/images/blue_floral_spray_1787753700793.png';
-import ethiopianCoupleImg from '../assets/images/4J0A5154.JPG';
+import ethiopianCoupleImg from '../assets/images/7U7A4737.JPG';
 import goldCrossImg from '../assets/images/ethiopian_gold_cross_1787811589160.jpg';
 import goldSealImg from '../assets/images/gold_wax_seal_1787753772029.jpg';
 
@@ -218,9 +218,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onResetEnv
 
               {/* Ethiopian Calendar */}
               <div className="py-1 pb-0">
-                <span className="font-cinzel text-[10px] tracking-[0.2em] text-[#AA7C11] uppercase block">
-                  Ethiopian Calendar
-                </span>
+
                 <span className="font-vibes text-3xl sm:text-4xl text-[#634703] block leading-tight">
                   መስከረም 3, 2019
                 </span>
@@ -230,18 +228,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onResetEnv
 
               {/* Big Day Number (Gregorian) */}
               <div className="py-1 pt-0">
-                <span className="font-cinzel text-[10px] tracking-[0.2em] text-[#AA7C11] uppercase block">
-                  Gregorian Calendar
-                </span>
+
                 <span className="font-serif-luxury text-5xl sm:text-7xl font-normal text-[#0A1931] tracking-tight block">
-                  {WEDDING_CONFIG.date.dayNumber}
-                </span>
-                <span className="font-cinzel text-sm sm:text-base tracking-[0.25em] text-[#634703] font-semibold block -mt-2">
-                  {WEDDING_CONFIG.date.monthYear}
-                </span>
-              </div>
-              <div className="py-1">
-                <span className="font-serif-luxury text-6xl sm:text-8xl font-normal text-[#0A1931] tracking-tight block">
                   {WEDDING_CONFIG.date.dayNumber}
                 </span>
                 <span className="font-cinzel text-sm sm:text-base tracking-[0.25em] text-[#634703] font-semibold block -mt-2">

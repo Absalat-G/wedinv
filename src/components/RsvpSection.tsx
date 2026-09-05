@@ -4,6 +4,8 @@ import confetti from 'canvas-confetti';
 import { Send, CheckCircle2, Heart, Sparkles, User, Mail, MessageSquare, Utensils, Music, Users, MessageCircle } from 'lucide-react';
 import { RsvpEntry } from '../types';
 import { WEDDING_CONFIG } from '../data/weddingData';
+import { db } from '../firebase';
+import { collection, addDoc, getDocs, orderBy, query, serverTimestamp } from 'firebase/firestore';
 
 // Images
 import floralSpray from '../assets/images/blue_floral_spray_1787753700793.png';
@@ -27,17 +29,30 @@ export const RsvpSection: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [guestbook, setGuestbook] = useState<Array<{ name: string; message: string; date: string }>>([]);
 
-  // Load persisted guestbook from localStorage
+  // Load live guestbook messages from Firestore
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem('wedding_rsvp_guestbook');
-      if (saved) {
-        setGuestbook(JSON.parse(saved));
+    const fetchGuestbook = async () => {
+      try {
+        const q = query(collection(db, 'rsvps'), orderBy('createdAt', 'desc'));
+        const snapshot = await getDocs(q);
+        const messages: Array<{ name: string; message: string; date: string }> = [];
+        snapshot.forEach((doc) => {
+          const d = doc.data();
+          if (d.message) {
+            messages.push({
+              name: d.name,
+              message: d.message,
+              date: d.submittedAt || '',
+            });
+          }
+        });
+        setGuestbook(messages);
+      } catch (err) {
+        console.warn('Could not load guestbook:', err);
       }
-    } catch {
-
-    }
-  }, []);
+    };
+    fetchGuestbook();
+  }, [isSubmitted]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,38 +69,31 @@ export const RsvpSection: React.FC = () => {
       ticks: 250,
     });
 
-    setTimeout(() => {
-      const newEntry: RsvpEntry = {
-        id: Date.now().toString(),
-        ...formData,
-        submittedAt: new Date().toLocaleDateString('en-US', {
-          month: 'long',
-          day: 'numeric',
-          year: 'numeric',
-        }),
-      };
-
-      // Add to guestbook if they left a message
-      if (formData.message.trim()) {
-        const updated = [
-          {
-            name: formData.name,
-            message: formData.message,
-            date: newEntry.submittedAt,
-          },
-          ...guestbook,
-        ];
-        setGuestbook(updated);
+    // Save RSVP to Firebase Firestore
+    const saveToFirebase = async () => {
+      const submittedAt = new Date().toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      });
+      try {
+        await addDoc(collection(db, 'rsvps'), {
+          ...formData,
+          submittedAt,
+          createdAt: serverTimestamp(),
+        });
+      } catch (err) {
+        console.error('Firebase save error:', err);
+        // Fallback to localStorage if Firebase not yet configured
         try {
-          localStorage.setItem('wedding_rsvp_guestbook', JSON.stringify(updated));
-        } catch {
-          // ignore
-        }
+          const existing = JSON.parse(localStorage.getItem('wedding_rsvp_fallback') || '[]');
+          localStorage.setItem('wedding_rsvp_fallback', JSON.stringify([{ ...formData, submittedAt }, ...existing]));
+        } catch {}
       }
-
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 800);
+    };
+    saveToFirebase();
   };
 
   const handleReset = () => {
@@ -271,7 +279,7 @@ export const RsvpSection: React.FC = () => {
                       />
                     </div>
 
-                    <div className="space-y-1.5">
+                    {/* <div className="space-y-1.5">
                       <label className="font-cinzel text-xs tracking-wider text-[#0A1931] uppercase font-bold flex items-center gap-1.5">
                         <Mail size={13} className="text-[#8E6A12]" />
                         <span>Email Address *</span>
@@ -284,7 +292,7 @@ export const RsvpSection: React.FC = () => {
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full px-4 py-2.5 rounded-lg bg-white border border-stone-300 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] text-sm text-[#050B18] placeholder:text-stone-400 outline-none transition-all"
                       />
-                    </div>
+                    </div> */}
                   </div>
 
                   {formData.attending === 'yes' && (
@@ -297,7 +305,7 @@ export const RsvpSection: React.FC = () => {
                       <div className="space-y-1.5">
                         <label className="font-cinzel text-xs tracking-wider text-[#0A1931] uppercase font-bold flex items-center gap-1.5">
                           <Sparkles size={13} className="text-[#8E6A12]" />
-                          <span>Events You Will Attend</span>
+                          <span>Will You Attend?</span>
                         </label>
                         <select
                           value={formData.eventsAttending}
@@ -305,19 +313,17 @@ export const RsvpSection: React.FC = () => {
                           className="w-full px-4 py-2.5 rounded-lg bg-white border border-stone-300 focus:border-[#D4AF37] text-sm text-[#050B18] outline-none"
                         >
                           <option value="Both Church Ceremony & Breakfast">
-                            ✨ Both Church Ceremony & Breakfast
+                            ✨ Yes I will attend the wedding
                           </option>
                           <option value="Church Ceremony Only">
-                            ⛪ Church Ceremony Only
+                            ⛪ Sorry I will not attend the wedding
                           </option>
-                          <option value="Breakfast Celebration Only">
-                            👑 Breakfast Celebration Only
-                          </option>
+
                         </select>
                       </div>
 
                       {/* Number of Guests */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-1.5">
                           <label className="font-cinzel text-xs tracking-wider text-[#0A1931] uppercase font-bold flex items-center gap-1.5">
                             <Users size={13} className="text-[#8E6A12]" />
@@ -349,10 +355,10 @@ export const RsvpSection: React.FC = () => {
                             />
                           </div>
                         )}
-                      </div>
+                      </div> */}
 
                       {/* Gourmet Meal Selection */}
-                      <div className="space-y-1.5">
+                      {/* <div className="space-y-1.5">
                         <label className="font-cinzel text-xs tracking-wider text-[#0A1931] uppercase font-bold flex items-center gap-1.5">
                           <Utensils size={13} className="text-[#8E6A12]" />
                           <span>Entrée & Banquet Preference</span>
@@ -375,10 +381,10 @@ export const RsvpSection: React.FC = () => {
                             Pan-Seared Chilean Sea Bass (Saffron beurre blanc, asparagus)
                           </option>
                         </select>
-                      </div>
+                      </div> */}
 
                       {/* Song Request for DJ */}
-                      <div className="space-y-1.5">
+                      {/* <div className="space-y-1.5">
                         <label className="font-cinzel text-xs tracking-wider text-[#0A1931] uppercase font-bold flex items-center gap-1.5">
                           <Music size={13} className="text-[#8E6A12]" />
                           <span>Eskista & Dance Song Request</span>
@@ -390,7 +396,7 @@ export const RsvpSection: React.FC = () => {
                           onChange={(e) => setFormData({ ...formData, songRequest: e.target.value })}
                           className="w-full px-4 py-2.5 rounded-lg bg-white border border-stone-300 focus:border-[#D4AF37] text-sm text-[#050B18] placeholder:text-stone-400 outline-none"
                         />
-                      </div>
+                      </div> */}
                     </motion.div>
                   )}
 

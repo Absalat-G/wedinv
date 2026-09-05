@@ -4,7 +4,7 @@ import { Heart, Sparkles, MapPin, Calendar, Quote, Crown } from 'lucide-react';
 import { STORY_MILESTONES, WEDDING_CONFIG } from '../data/weddingData';
 
 // Images
-import ethiopianCoupleImg from '../assets/images/4J0A5154.JPG';
+import ethiopianCoupleImg from '../assets/images/7U7A4737.JPG';
 import cathedralImg from '../assets/images/ethiopian_orthodox_church_1787811623729.jpg';
 import goldCrossImg from '../assets/images/ethiopian_gold_cross_1787811589160.jpg';
 import floralSpray from '../assets/images/blue_floral_spray_1787753700793.png';
